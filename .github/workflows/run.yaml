@@ -1,4 +1,4 @@
-name: Run python script on push
+name: Run on schedule
 on:
   schedule:
     # 장 마감(15:30 서울) 후 10분 뒤 실행

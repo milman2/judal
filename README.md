@@ -36,7 +36,7 @@ uv pip freeze > requirements.txt
 
 ## Secret 설정
 
-- [Personal Access Token (classic)](https://github.com/settings/tokens) 생성 (권한: gist 체크)
+- [Settings - Developer Settings - Personal access tokens - Tokens (classic)](https://github.com/settings/tokens) 생성 (권한: gist 체크)
   - Generate new token (classic)
     - 권한 check: gist
 - repo의 Settings - Secrets and variables - Actions

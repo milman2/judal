@@ -34,6 +34,16 @@ uv pip freeze > requirements.txt
 
 - 생성된 md 파일을 gist에 업로드하여 공유
 
+## Secret 설정
+
+- [Personal Access Token (classic)](https://github.com/settings/tokens) 생성 (권한: gist 체크)
+  - Generate new token (classic)
+    - 권한 check: gist
+- repo의 Settings - Secrets and variables - Actions
+
+  - New repository secret
+    - GIST_TOKEN: 위에서 생성한 Personal Access Token 입력
+
 # Releases
 
 - 생성된 db3 파일을 release에 업로드하여 공유

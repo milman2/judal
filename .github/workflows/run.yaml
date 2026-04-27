@@ -1,13 +1,24 @@
 name: Run python script on push
 on: [push]
 jobs:
-  build:
+  run-judal-script:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Run a one-line script
-        run: echo Hello, Github Actions!
-      - name: Run a multi-line script
+      - name: checkout repo
+        uses: actions/checkout@v6
+      - name: 파이썬 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10" # 원하는 버전 입력
+          cache: "pip" # 위에서 배운 캐싱도 한 줄로 추가!
+
+      - name: 패키지 설치
+        run: pip install -r requirements.txt
+
+      - name: 코드 실행
+        run: python judal.py
+
+      - name: 결과 출력
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          cat ./DAY
+          ls -al *.md

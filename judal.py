@@ -203,6 +203,10 @@ def crawl_data():
       df.to_excel(f"{current_folder}/tmp/fundBuy.xlsx", index=False)
       save_to_db_FundBuy(current_date, df)
 
+  # current_date를 DAY 파일에 저장 => github actions에서 사용 예정
+  with open(f"{current_folder}/DAY", "w") as f:
+    f.write(current_date)
+
   # 연기금 순매도
   current_date, df = get_judal_stock_data(url = "https://www.judal.co.kr/?view=stockList&type=fundSell", multiplier=-1)
   if df is not None:

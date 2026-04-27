@@ -1,6 +1,7 @@
 tmp/
 *.db3
 stock_interest_*.md
+DAY
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

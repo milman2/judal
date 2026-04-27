@@ -39,4 +39,5 @@ jobs:
           fi
           # 3. GitHub CLI를 사용하여 Gist 업데이트
           # -f 옵션은 해당 이름의 파일이 Gist에 있으면 덮어쓰고, 없으면 추가합니다.
-          gh gist edit $GIST_ID -f "$FILENAME"="$FILENAME"
+          #gh gist edit $GIST_ID -f "$FILENAME"="$FILENAME"
+          gh gist edit $GIST_ID --add "$FILENAME"

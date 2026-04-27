@@ -47,3 +47,5 @@ uv pip freeze > requirements.txt
 # Releases
 
 - 생성된 db3 파일을 release에 업로드하여 공유
+
+# Github Artifacts

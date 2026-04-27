@@ -20,10 +20,25 @@ jobs:
           mkdir tmp
           python judal.py
 
-      - name: 결과 출력
+      - name: 오늘 날짜 확인
+        id: check_date
         run: |
-          cat ./DAY
-          ls -al *.md
+          # 1. 파일에서 날짜 읽기
+          DAY_STR=$(cat ./DAY | xargs)
+          # 2. 시스템의 오늘 날짜 가져오기 (YYYY-MM-DD 형식)
+          # 한국 시간(KST) 기준이라면 TZ 설정을 추가하세요.
+          TODAY=$(TZ='Asia/Seoul' date +'%Y-%m-%d')
+
+          echo "파일 날짜: $DAY_STR"
+          echo "오늘 날짜: $TODAY"
+
+          # 3. 비교 결과 저장
+          if [ "$DAY_STR" == "$TODAY" ]; then
+            echo "match=true" >> $GITHUB_OUTPUT
+          else
+            echo "match=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Gist 업로드
         env:
           GH_TOKEN: ${{ secrets.GIST_TOKEN }}
@@ -43,8 +58,9 @@ jobs:
           gh gist edit $GIST_ID --add "$FILENAME"
 
       - name: DB 파일 보관하기
+        if: steps.check_date.outputs.match == 'true' # 날짜가 일치할 때만 실행
         uses: actions/upload-artifact@v4
         with:
           name: stock-database # Artifact의 이름
           path: stock_data.db3 # 보관할 파일 경로
-          retention-days: 5 # 보관 기간 (기본 90일, 최대 90일)
+          retention-days: 30 # 보관 기간 (기본 90일, 최대 90일)

@@ -41,7 +41,6 @@ jobs:
           # -f 옵션은 해당 이름의 파일이 Gist에 있으면 덮어쓰고, 없으면 추가합니다.
           #gh gist edit $GIST_ID -f "$FILENAME"="$FILENAME"
           gh gist edit $GIST_ID --add "$FILENAME"
-          gh gist edit $GIST_ID --add "stock_data.db3"
 
       - name: DB 파일 보관하기
         uses: actions/upload-artifact@v4

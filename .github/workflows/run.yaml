@@ -16,7 +16,9 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: 코드 실행
-        run: python judal.py
+        run: |
+          mkdir tmp
+          python judal.py
 
       - name: 결과 출력
         run: |

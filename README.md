@@ -1,2 +1,39 @@
 # judal
-주달
+
+KRX 장 종료 후, 외국인, 기관의 매수/매도량을 크롤링하여 저장하는 프로그램입니다
+
+# 가상환경
+
+```shell
+uv env
+
+# Windows
+.venv\Scripts\activate
+
+# Linux/Mac
+source .venv/bin/activate
+
+uv pip install exchange_calendars requests BeautifulSoup openpyxl tabulate
+
+uv pip freeze > requirements.txt
+```
+
+## VSCode 기본 python 가상환경 설정/변경
+
+- Ctrl + Shift + P -> Python: Select Interpreter -> .venv 선택
+- 가상환경을 쓰고 싶지 않다면 시스템 기본 파이썬을 선택
+
+- [Settings] - Python: Activate Environment - 체크 해제
+  - Python : Select Interpreter 목록에서 Recommended 표시된 가상환경이 자동으로 활성화 되는 것 같다.
+
+# Github Actions
+
+- 매일 오후 3시 30분 이후(40분 정도) 자동으로 실행
+
+# Gist
+
+- 생성된 md 파일을 gist에 업로드하여 공유
+
+# Releases
+
+- 생성된 db3 파일을 release에 업로드하여 공유
